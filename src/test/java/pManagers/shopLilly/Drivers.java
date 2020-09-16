@@ -8,6 +8,7 @@ public class Drivers {
 private WebDriver driver;
     public WebDriver startBrowser(String url, String browserName) {
 //        changeBrowser(browserName);
+
         if (browserName.equalsIgnoreCase("Chrome")) {
             System.setProperty("webdriver.chrome.driver", "src\\test\\java\\resources\\webDrivers\\chromedriver.exe");
             driver = new ChromeDriver();

@@ -2,7 +2,6 @@ package pManagers.shopLilly;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class LillyRegularsElements {
     WebDriver driver;
@@ -24,9 +23,20 @@ public class LillyRegularsElements {
     }
 
     public void selectAllProductSubMenuElement(String name) {
-        driver.findElement(By.xpath("//span[text()=\""+name+"\"]")).click();
+        driver.findElement(By.xpath("//span[text()=\"" + name + "\"]")).click();
 
     }
 
+    public String getPageTitle() {
+        return driver.getTitle();
+    }
+
+    public void closeBrowser() {
+        driver.quit();
+    }
+
+    public void closeTab() {
+        driver.close();
+    }
 
 }
