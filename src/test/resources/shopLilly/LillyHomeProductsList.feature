@@ -1,4 +1,4 @@
-@Lilly @Show
+ @Show
 Feature: shopping
         #Продукти за дома
   Scenario: user goes to Home Products from the left menu

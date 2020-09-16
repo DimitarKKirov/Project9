@@ -5,8 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Drivers {
-private WebDriver driver;
-    public WebDriver startBrowser(String url, String browserName) {
+
+    private static WebDriver driver;
+    private static void setDriver(WebDriver driver) {
+        Drivers.driver = driver;
+    }
+    public static WebDriver startBrowser(String url, String browserName) {
 //        changeBrowser(browserName);
 
         if (browserName.equalsIgnoreCase("Chrome")) {
@@ -19,6 +23,7 @@ private WebDriver driver;
         }
         driver.manage().window().maximize();
         driver.get(url);
+        setDriver(driver);
         return driver;
 
     }

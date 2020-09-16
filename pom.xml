@@ -76,7 +76,7 @@
                     <version>2.22.2</version>
                     <configuration>
                         <includes>
-                            <include>**/HookedRunner.java</include>
+                            <include>**/Runner.java</include>
                             <include>tags</include>
                         </includes>
                     </configuration>
