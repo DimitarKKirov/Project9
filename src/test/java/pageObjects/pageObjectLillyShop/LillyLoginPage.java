@@ -5,13 +5,7 @@ import org.openqa.selenium.WebDriver;
 import pManagers.shopLilly.LillyRegularsElements;
 
 public class LillyLoginPage extends LillyRegularsElements {
-    WebDriver driver;
 
-
-    public LillyLoginPage(WebDriver driver) {
-        super(driver);
-        this.driver=driver;
-    }
 
     public void emailField(String email) {
         driver.findElement(By.id("email")).sendKeys(email);

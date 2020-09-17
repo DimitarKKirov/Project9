@@ -1,4 +1,4 @@
-package steps;
+package steps.webShopLilly;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -6,17 +6,17 @@ import io.cucumber.java.en.When;
 import mastePageManager.MasterManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pageObjects.Drivers.Drivers;
 import pageObjects.pageObjectLillyShop.LillyHomePage;
 
 public class LillyHomePageSteps {
+
     WebDriver driver;
     LillyHomePage lillyHomePage;
 
     @Given("user is on Home Page {string}")
     public void userIsOn(String homePage) {
-        driver = MasterManager.getMasterManager().drivers().startBrowser(homePage, "chrome");
-        lillyHomePage = MasterManager.getMasterManager().lillyMasterPage(driver).lillyHomePage();
+        lillyHomePage = MasterManager.getMasterManager().lillyPageManager().lillyHomePage();
+        lillyHomePage.startBrowser(homePage,"chrome");
         String title = lillyHomePage.getPageTitle();
         Assert.assertEquals("Лили Дрогерие онлайн магазин | Лили Дрогерие", title);
     }
