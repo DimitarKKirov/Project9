@@ -6,7 +6,7 @@ import pageObjects.pageObjectLillyShop.LillyLoginPage;
 
 public class LillyMasterPage {
 
-    private final WebDriver driver;
+    private WebDriver driver;
     private LillyHomePage lillyHomePage;
     private LillyLoginPage lillyLoginPage;
 

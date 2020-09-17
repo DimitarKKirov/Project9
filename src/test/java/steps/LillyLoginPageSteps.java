@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import mastePageManager.MasterManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pManagers.shopLilly.Drivers;
 import pageObjects.pageObjectLillyShop.LillyLoginPage;
 
 public class LillyLoginPageSteps {
@@ -16,10 +15,10 @@ public class LillyLoginPageSteps {
 
     @Given("the user is on the {string} page")
     public void loginPage(String pageLink) {
-        driver = Drivers.startBrowser(pageLink, "chrome");
-        lillyLoginPage= MasterManager.getMasterManager().lillyMasterPage(driver).lillyLoginPage();
+        driver = MasterManager.getMasterManager().drivers().startBrowser(pageLink, "chrome");
+        lillyLoginPage = MasterManager.getMasterManager().lillyMasterPage(driver).lillyLoginPage();
         String title = lillyLoginPage.getPageTitle();
-        Assert.assertEquals("Вход | Лили Дрогерие",title);
+        Assert.assertEquals("Вход | Лили Дрогерие", title);
     }
 
     @When("user enters the correct {string} and {string}")
@@ -37,7 +36,9 @@ public class LillyLoginPageSteps {
     @Then("user is successfully logged in")
     public void successfullyLoggedIn() {
         String title = lillyLoginPage.getPageTitle();
-        Assert.assertEquals("Моят профил | Лили Дрогерие",title);
-        lillyLoginPage.closeBrowser();
+        lillyLoginPage.createWait(5000);
+        Assert.assertEquals("Лили Дрогерие онлайн магазин | Лили Дрогерие", title);
+        lillyLoginPage.createWait(5000);
+        lillyLoginPage.quitBrowser();
     }
 }

@@ -12,8 +12,10 @@ public class LillyRegularsElements {
 
 
     /*instantiation of singleton page classes, inheritance of methods of:
-    1:MainMenu all products
-    2:
+    1:MainMenu method for selecting from all products menu
+    2:Wait method for all inheriting classes
+    3:searching and returning current page title
+    4:close tab and close browser methods
      */
 
     public LillyRegularsElements(WebDriver driver) {
@@ -21,8 +23,8 @@ public class LillyRegularsElements {
         action = new Actions(driver);
     }
 
-    public WebDriverWait createWait(int timeOut) {
-        return new WebDriverWait(driver,timeOut);
+    public void createWait(int timeOut) {
+        new WebDriverWait(driver, timeOut);
     }
 
     public void allProduct() {
@@ -38,12 +40,9 @@ public class LillyRegularsElements {
         return driver.getTitle();
     }
 
-    public void closeBrowser() {
+public void quitBrowser(){
         driver.quit();
-    }
-
-    public void closeTab() {
-        driver.close();
-    }
+        driver=null;
+}
 
 }

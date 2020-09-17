@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import mastePageManager.MasterManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pManagers.shopLilly.Drivers;
+import pageObjects.Drivers.Drivers;
 import pageObjects.pageObjectLillyShop.LillyHomePage;
 
 public class LillyHomePageSteps {
@@ -15,7 +15,7 @@ public class LillyHomePageSteps {
 
     @Given("user is on Home Page {string}")
     public void userIsOn(String homePage) {
-        driver = Drivers.startBrowser(homePage, "chroem");
+        driver = MasterManager.getMasterManager().drivers().startBrowser(homePage, "chrome");
         lillyHomePage = MasterManager.getMasterManager().lillyMasterPage(driver).lillyHomePage();
         String title = lillyHomePage.getPageTitle();
         Assert.assertEquals("Лили Дрогерие онлайн магазин | Лили Дрогерие", title);
@@ -30,7 +30,7 @@ public class LillyHomePageSteps {
     public void redirectionToLoginPage() {
         String title = lillyHomePage.getPageTitle();
         Assert.assertEquals("Вход | Лили Дрогерие", title);
-        lillyHomePage.closeBrowser();
+        lillyHomePage.quitBrowser();
     }
 
 

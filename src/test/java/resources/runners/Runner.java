@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources"},
         tags = "@Lilly",
         plugin = {"pretty"},
-        glue = "steps"
-        //dryRun=false
+        glue = "steps",
+        dryRun=false
 )
 
 public class Runner {
