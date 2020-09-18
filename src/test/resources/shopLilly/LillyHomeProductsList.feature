@@ -1,4 +1,4 @@
- @Show
+ @Show @Lilly
 Feature: shopping
 
   Scenario Outline: user goes to Home Products from the left menu

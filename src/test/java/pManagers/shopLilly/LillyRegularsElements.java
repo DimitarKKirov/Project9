@@ -96,7 +96,7 @@ public abstract class LillyRegularsElements implements DriverSwitchBrowser {
         return driver.getTitle();
     }
     public WebElement getPageTitleElement(){
-        return driver.findElement(By.xpath("//title"));
+        return driver.findElement(By.xpath("//title*"));
     }
     public void quitBrowser() {
         driver.quit();

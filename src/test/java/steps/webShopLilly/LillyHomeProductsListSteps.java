@@ -56,13 +56,19 @@ public class LillyHomeProductsListSteps {
 
     @Given("add items to the basket")
     public void addItemsToBasket() {
-        lillyHomeProducts.clickFirstItemOfList();
+        try {
+            lillyHomeProducts.clickFirstItemOfList();
+        Thread.sleep(2000);
+
         lillyHomeProducts.clickSecondItemOfList();
+    }catch (InterruptedException e){
+        e.printStackTrace();
+        }
     }
 
     @Given("the total price is calculated correctly for the items in the basket")
     public void basketTotalPriceIsCorrect() {
-        lillyHomeProducts.createWait(5).until(ExpectedConditions.textToBePresentInElement(lillyHomeProducts.getPriceOfCart(), "7,52"));
+        lillyHomeProducts.createWait(5).until(ExpectedConditions.textToBePresentInElement(lillyHomeProducts.getPriceOfCart(), "7,58 лв."));
 
 
     }
@@ -74,9 +80,7 @@ public class LillyHomeProductsListSteps {
 
     @Then("the user is redirected to the shopping cart")
     public void redirectedToShoppingCart() {
-//        String cartTitle =  lillyHomeProducts.getPageTitle();
-//        Assert.assertEquals("Вашата количка | Лили Дрогерие",cartTitle);
-        lillyHomeProducts.createWait(10000).until(ExpectedConditions.textToBePresentInElement(lillyHomeProducts.getPageTitleElement(),lillyHomeProducts.getPageTitle()));
+        lillyHomeProducts.createWait(5).until(ExpectedConditions.textToBePresentInElement(lillyHomeProducts.getPageTitleElement(),"Вашата количка | Лили Дрогерие"));
         lillyHomeProducts.quitBrowser();
     }
 }

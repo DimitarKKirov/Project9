@@ -37,4 +37,10 @@ public class LillyHomeProductsListsPage extends LillyRegularsElements {
         action.moveToElement(cart).build().perform();
         cart.click();
     }
+    public void clickCheckOut() {
+        Actions actions = new Actions(driver);
+        WebElement checkOut = driver.findElement(By.xpath("//button[@title=\"Към завършване\"]/span"));
+        actions.moveToElement(checkOut).build().perform();
+        checkOut.click();
+    }
 }
