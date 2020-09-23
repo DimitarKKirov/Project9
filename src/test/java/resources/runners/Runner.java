@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         monochrome = true,
         features = {"src/test/resources"},
         tags = "@Lilly",
-        plugin = {"pretty"},
+        plugin = {"pretty,html:target/cucumber-hmtl-report,json:target/cucumber.json"},
         glue = "steps",
         dryRun=false
 )
