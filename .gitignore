@@ -1,6 +1,4 @@
 .idea
 Project9.iml
 /target
-dubug.log
-Rest/
-src/test/java/pageObjects/REST/Test.java
+debug.log
