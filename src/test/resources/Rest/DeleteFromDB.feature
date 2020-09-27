@@ -1,3 +1,4 @@
+@Show
 Feature: delete entry from DB
 
   Scenario Outline:

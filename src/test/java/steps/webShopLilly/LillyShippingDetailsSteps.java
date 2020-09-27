@@ -53,5 +53,6 @@ public class LillyShippingDetailsSteps {
     @Then("the user is redirected to the payment page")
     public void redirectedToPaymentPage() {
         shippingDetails.createWait(7).until(ExpectedConditions.textToBePresentInElement(shippingDetails.getPageTitleElement(), "Поръчай | Лили Дрогерие"));
+        shippingDetails.quitBrowser();
     }
 }

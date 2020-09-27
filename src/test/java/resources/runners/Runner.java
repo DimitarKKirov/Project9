@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         monochrome = true,
         features = {"src/test/resources"},
-        tags = "@Lilly",
-        plugin = {"pretty,html:target/cucumber-hmtl-report,json:target/cucumber.json"},
+        tags = "@Show",
+        plugin = {"pretty","html:target/cucumber-hmtl-report","json:target/cucumber.json"},
         glue = "steps",
         dryRun=false
 )

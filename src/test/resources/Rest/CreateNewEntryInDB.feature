@@ -1,3 +1,4 @@
+@Show
 Feature: adding employ data to DB
 
   Scenario Outline: Create an entry in the DB,Retrieve information from the DB
