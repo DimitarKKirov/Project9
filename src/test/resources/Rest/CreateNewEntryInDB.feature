@@ -1,6 +1,7 @@
 Feature: adding employ data to DB
 
-  Scenario Outline:
+  Scenario Outline: Create an entry in the DB,Retrieve information from the DB
+
     Given user have access to "http://dummy.restapiexample.com"
     When user enter "<employee name>","<employee salary>","<employee age>"
     Then the user will create new entry in DB

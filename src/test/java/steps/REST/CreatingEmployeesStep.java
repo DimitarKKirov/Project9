@@ -4,12 +4,9 @@ package steps.REST;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.http.ContentType;
 import mastePageManager.MasterManager;
-import org.json.simple.JSONObject;
 import pageObjects.REST.DummyRestApiExample;
 
-import static io.restassured.RestAssured.*;
 
 public class CreatingEmployeesStep {
     private DummyRestApiExample rest;

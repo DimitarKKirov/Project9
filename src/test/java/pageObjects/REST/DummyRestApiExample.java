@@ -18,17 +18,18 @@ public class DummyRestApiExample {
         RequestSpecification request = RestAssured.given();
         Response response = request.request(Method.GET, url);
         Assert.assertEquals(200, response.getStatusCode());
+        System.out.println(response.getStatusCode());
 
     }
 
     public void getAllEmployees() {
-        RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1/employee/";
+        RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1";
 
         RequestSpecification request = RestAssured.given();
 
-        Response response = request.request(Method.GET, "7744");
+        Response response = request.request(Method.GET, "/employees");
 
-        String body = response.getBody().toString();
+        String body = response.getBody().asString();
         System.out.println(body);
     }
 
@@ -40,9 +41,9 @@ public class DummyRestApiExample {
 
         JSONObject req = new JSONObject();
         //parameters for new entry
-        req.put("name", name);
-        req.put("salary", salary);
-        req.put("age", age);
+        req.put("name",name);
+        req.put("salary",salary);
+        req.put("age",age);
 
         request.header("Content-Type", "application/json");
 
@@ -52,14 +53,41 @@ public class DummyRestApiExample {
         Response response = request.request(Method.POST, "api/v1/create");
 
         String resBody = response.getBody().asString();
-        System.out.println(resBody);
         int statusCode = response.statusCode();
         Assert.assertEquals(200,statusCode);
+        System.out.println(resBody);
+        Assert.assertTrue(resBody.contains(name));
+        Assert.assertTrue(resBody.contains(salary));
+        Assert.assertTrue(resBody.contains(age));
 
 
     }
 
-    
+    public void deleteByID(String id){
+        RestAssured.baseURI = "http://dummy.restapiexample.com/";
+
+        RequestSpecification request = RestAssured.given();
+
+        Response response = request.request(Method.DELETE,"api/v1/delete/"+ id);
 
 
+
+        String resBody = response.getBody().asString();
+        System.out.println(resBody);
+        int statusCode = response.statusCode();
+        Assert.assertEquals(200,statusCode);
+
+    }
+
+    public void getEmployeesById(String id) {
+        RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1/employee/";
+
+        RequestSpecification request = RestAssured.given();
+
+        Response response = request.request(Method.GET, id);
+
+        String body = response.getBody().asString();
+        System.out.println(body);
+
+    }
 }
