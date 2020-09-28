@@ -10,7 +10,6 @@ import pageObjects.pageObjectLillyShop.LillyHomePage;
 
 public class LillyHomePageSteps {
 
-    WebDriver driver;
     LillyHomePage lillyHomePage;
 
     @Given("user is on Home Page {string}")

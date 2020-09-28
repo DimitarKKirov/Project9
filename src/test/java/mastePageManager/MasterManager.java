@@ -3,6 +3,7 @@ package mastePageManager;
 import pageObjects.REST.DummyRestApiExample;
 import pageObjects.SOAP.SoapTestingDneonLine;
 import pageObjects.pageObjectLillyShop.LillyPageManager;
+import pageObjects.pageObjectsEmag.EmagPageManager;
 
 public class MasterManager {
 
@@ -10,6 +11,7 @@ public class MasterManager {
     private LillyPageManager lillyPageManager;
     private DummyRestApiExample dummyRestApiExample;
     private SoapTestingDneonLine soapTestingDneonLine;
+    private EmagPageManager emagPageManager;
 
     public static MasterManager getMasterManager() {
         return masterManager;
@@ -33,5 +35,11 @@ public class MasterManager {
             soapTestingDneonLine = new SoapTestingDneonLine();
             return soapTestingDneonLine;
         }return soapTestingDneonLine;
+    }
+    public EmagPageManager emagPageManager(){
+        if (emagPageManager==null){
+            emagPageManager = new EmagPageManager();
+            return emagPageManager;
+        }return emagPageManager;
     }
 }

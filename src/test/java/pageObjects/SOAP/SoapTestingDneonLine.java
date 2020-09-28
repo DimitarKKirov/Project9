@@ -93,7 +93,31 @@ public class SoapTestingDneonLine {
 
         Response xml = spec.request()
                 .contentType("text/xml; charset=UTF-8;").body(paperAdd)
-                .header("Subtract", "Subtract", "Content-Type", "text/xml")
+                .header("Multiply", "Multiply", "Content-Type", "text/xml")
+                .when().post();
+        Assert.assertNotNull(xml);
+        return xml;
+
+    }
+
+    public Response divide(int firstNumber, int secondNumber) {
+
+        RequestSpecification spec = RestAssured.given();
+        RestAssured.baseURI = "http://www.dneonline.com/calculator.asmx?WSDL";
+        //envelope
+        String paperAdd = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">" +
+                "  <soap12:Body>" +
+                "    <Divide xmlns=\"http://tempuri.org/\">" +
+                "      <intA>" + firstNumber + "</intA>" +
+                "      <intB>" + secondNumber + "</intB>" +
+                "    </Divide>" +
+                "  </soap12:Body>" +
+                "</soap12:Envelope>";
+
+        Response xml = spec.request()
+                .contentType("text/xml; charset=UTF-8;").body(paperAdd)
+                .header("Divide", "Divide", "Content-Type", "text/xml")
                 .when().post();
         Assert.assertNotNull(xml);
         return xml;
