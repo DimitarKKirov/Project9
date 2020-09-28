@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -59,7 +60,7 @@ public abstract class LillyRegularsElements implements DriverSwitchBrowser {
 
     }
 
-    public WebDriver startBrowser(String url, String browserName) {
+    public  WebDriver startBrowser(String url, String browserName) {
 
         changeBrowser(browserName);
 
@@ -70,6 +71,13 @@ public abstract class LillyRegularsElements implements DriverSwitchBrowser {
         } else if (browserName.equalsIgnoreCase("FireFox")) {
             System.setProperty(browserProperty, browserDriverPath);
             driver = new FirefoxDriver();
+        }
+        else if (browserName.equalsIgnoreCase("chromeHeadless")) {
+            System.setProperty(browserProperty, browserDriverPath);
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("headless");
+            driver = new ChromeDriver(options);
+
         }
         driver.manage().window().maximize();
         driver.get(url);

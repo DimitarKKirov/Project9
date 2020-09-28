@@ -2,6 +2,7 @@ package pageObjects.Drivers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
@@ -52,7 +53,14 @@ public class Drivers implements DriverSwitchBrowser {
             System.setProperty(browserProperty, browserDriverPath);
             driver = new FirefoxDriver();
         }
-        driver.manage().window().maximize();
+        else if (browserName.equalsIgnoreCase("chromeHeadless")) {
+            System.setProperty(browserProperty, browserDriverPath);
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("headless");
+            driver = new ChromeDriver(options);
+
+        }
+            driver.manage().window().maximize();
         driver.get(url);
         setDriver(driver);
         return driver;
